@@ -1,4 +1,4 @@
-<form #contactDetailsForm="ngForm" (ngSubmit)="onFormSubmit()">
+<form name="model_form" #model_form="ngForm" (ngSubmit)="onFormSubmit()">
   <fieldset>
     <div class="form-group">
       <label for="id_input1" class="col-form-label">demo: built in validators</label>
@@ -41,6 +41,6 @@
       <!-- input validation starts here -->
       <!-- input validation ends here -->
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="!model_form.form.valid">Submit</button>
   </fieldset>
 </form>
