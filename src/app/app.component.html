@@ -1,20 +1,46 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<form #contactDetailsForm="ngForm" (ngSubmit)="onFormSubmit()">
+  <fieldset>
+    <div class="form-group">
+      <label for="id_input1" class="col-form-label">demo: built in validators</label>
+      <input type="text" id="id_input1" name="model_input1" class="form-control" [(ngModel)]="input1" required
+        minlength="5" #model_input1="ngModel">
+      <!-- input validation starts here -->
+      <!-- We'll just dump all properties of the input's ngModel here -->
+      <div *ngIf="model_input1.valid">Is Valid</div>
+      <div *ngIf="model_input1.invalid">Is Invalid</div>
+      <div *ngIf="model_input1.dirty">Is Dirty</div>
+      <div *ngIf="model_input1.pristine">Is Pristine</div>
+      <div *ngIf="model_input1.touched">Is Touched</div>
+      <div *ngIf="model_input1.untouched">Is Untouched</div>
+      <div *ngIf="model_input1.status">status: {{ model_input1.status }}</div>
+      <div *ngIf="model_input1.path">path: {{ model_input1.path }}</div>
+      <div *ngIf="model_input1.errors">errors: {{ model_input1.errors }}</div>
+      <div *ngIf="model_input1?.errors?.required">error['required']: {{ model_input1?.errors?.required }}</div>
+      <div *ngIf="model_input1?.errors?.minlength">error['minlength']: {{ model_input1?.errors?.minlength }}</div>
+      <div *ngIf="model_input1?.errors?.email">error['email']: {{ model_input1?.errors?.email }}</div>
+      <!-- input validation ends here -->
+    </div>
+    <div class="form-group">
+      <label for="id_input2" class="col-form-label">demo: custom validator</label>
+      <input type="text" id="id_input2" name="model_input2" class="form-control" [(ngModel)]="input2" required
+        minlength="5" #model_input2="ngModel">
+      <!-- input validation starts here -->
+      <!-- input validation ends here -->
+    </div>
+    <div class="form-group">
+      <label for="id_input3" class="col-form-label">demo: async validator</label>
+      <input type="text" id="id_input3" name="model_input3" class="form-control" [(ngModel)]="input3" required
+        minlength="5" #model_input3="ngModel">
+      <!-- input validation starts here -->
+      <!-- input validation ends here -->
+    </div>
+    <div class="form-group">
+      <label for="id_input4" class="col-form-label">demo: misc validator</label>
+      <input type="text" id="id_input4" name="model_input4" class="form-control" [(ngModel)]="input4" required
+        minlength="5" #model_input4="ngModel">
+      <!-- input validation starts here -->
+      <!-- input validation ends here -->
+    </div>
+    <button type="submit">Submit</button>
+  </fieldset>
+</form>
