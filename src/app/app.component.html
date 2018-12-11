@@ -4,7 +4,7 @@
       <label for="id_input1" class="col-form-label">demo: built in validators</label>
       <input type="text" id="id_input1" name="model_input1" class="form-control" [(ngModel)]="input1" required
         minlength="5" #model_input1="ngModel">
-      <!-- input validation starts here -->
+      <!-- input validation starts here: built-in validators -->
       <!-- We'll just dump all properties of the input's ngModel here -->
       <div *ngIf="model_input1.valid">Is Valid</div>
       <div *ngIf="model_input1.invalid">Is Invalid</div>
@@ -18,14 +18,27 @@
       <div *ngIf="model_input1?.errors?.required">error['required']: {{ model_input1?.errors?.required }}</div>
       <div *ngIf="model_input1?.errors?.minlength">error['minlength']: {{ model_input1?.errors?.minlength }}</div>
       <div *ngIf="model_input1?.errors?.email">error['email']: {{ model_input1?.errors?.email }}</div>
-      <!-- input validation ends here -->
+      <!-- input validation ends here: built-in validators -->
     </div>
     <div class="form-group">
       <label for="id_input2" class="col-form-label">demo: custom validator</label>
-      <input type="text" id="id_input2" name="model_input2" class="form-control" [(ngModel)]="input2" required
-        minlength="5" #model_input2="ngModel">
-      <!-- input validation starts here -->
-      <!-- input validation ends here -->
+      <input type="text" id="id_input2" name="model_input2" class="form-control" [(ngModel)]="input2" #model_input2="ngModel"
+        appCustomValidator="model_input2">
+      <!-- input validation starts here: custom validator -->
+      <!-- We'll just dump all properties of the input's ngModel here -->
+      <div *ngIf="model_input2.valid">Is Valid</div>
+      <div *ngIf="model_input2.invalid">Is Invalid</div>
+      <div *ngIf="model_input2.dirty">Is Dirty</div>
+      <div *ngIf="model_input2.pristine">Is Pristine</div>
+      <div *ngIf="model_input2.touched">Is Touched</div>
+      <div *ngIf="model_input2.untouched">Is Untouched</div>
+      <div *ngIf="model_input2.status">status: {{ model_input2.status }}</div>
+      <div *ngIf="model_input2.path">path: {{ model_input2.path }}</div>
+      <div *ngIf="model_input2.errors">errors: {{ model_input2.errors }}</div>
+      <div *ngIf="model_input2?.errors?.required">error['required']: {{ model_input2?.errors?.required }}</div>
+      <div *ngIf="model_input2?.errors?.minlength">error['minlength']: {{ model_input2?.errors?.minlength }}</div>
+      <div *ngIf="model_input2?.errors?.email">error['email']: {{ model_input2?.errors?.email }}</div>
+      <!-- input validation ends here: custom validator -->
     </div>
     <div class="form-group">
       <label for="id_input3" class="col-form-label">demo: async validator</label>
